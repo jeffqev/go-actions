@@ -36,7 +36,7 @@ jobs:
       - name: ssh build
         uses: cross-the-world/ssh-pipeline@master
         env:
-          BUILD_TAG: ${{ github.sha }}
+          SHA: ${{ github.sha }}
         with:
           host: ${{ secrets.DC_HOST }}
           user: ${{ secrets.DC_USER }}
@@ -45,5 +45,7 @@ jobs:
           connect_timeout: 10s
           script: |
             cd /root/Documentos/devops/ghactions/actions
-            docker-compose up -d
+            export BUILD_TAG=$SHA
+            echo $SHA > test.txt
+            sh script.sh
             
