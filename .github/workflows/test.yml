@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        run: docker build . --file dockerfile --tag goactions:$(date +%s)
       - name: Publish image
         uses: elgohr/Publish-Docker-Github-Action@master
         with: 
