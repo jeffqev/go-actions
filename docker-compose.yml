@@ -1,0 +1,12 @@
+version: '3'
+services:
+  api:
+    container_name: jeffqevimage
+    restart: always
+    image: jeffqev/go-actions:latest
+    ports:
+      - "1518:1323"
+    networks:
+      - goactions
+networks:
+  goactions:
