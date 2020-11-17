@@ -33,10 +33,10 @@ jobs:
           repository: ${{ github.repository }}
           tag_with_ref: true
           tags: ${{ github.sha }}
-      - name: ssh pipelines
+      - name: ssh build
         uses: cross-the-world/ssh-pipeline@master
         env:
-          SHA: ${{ github.sha }}
+          BUILD_TAG: ${{ github.sha }}
         with:
           host: ${{ secrets.DC_HOST }}
           user: ${{ secrets.DC_USER }}
@@ -44,6 +44,6 @@ jobs:
           port: ${{ secrets.DC_PORT }}
           connect_timeout: 10s
           script: |
-            cd /root/Documentos/devops/ghactions
-            echo $SHA > hola.txt 
+            cd /root/Documentos/devops/ghactions/actions
+            docker-compose up -d
             

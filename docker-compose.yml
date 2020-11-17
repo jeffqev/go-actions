@@ -3,7 +3,7 @@ services:
   api:
     container_name: jeffqevimage
     restart: always
-    image: jeffqev/go-actions:latest
+    image: "jeffqev/go-actions:$BUILD_TAG"
     ports:
       - "1518:1323"
     networks:
