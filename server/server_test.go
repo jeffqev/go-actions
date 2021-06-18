@@ -6,5 +6,5 @@ import (
 )
 
 func TestOk(t *testing.T) {
-	fmt.Println("ok")
+	t.Errorf("invalido")
 }
